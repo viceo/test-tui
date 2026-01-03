@@ -148,8 +148,10 @@ func (m app_model) View() string {
 	columns := []*flexbox.Row{
 		view.NewRow().AddCells(
 			flexbox.NewCell(9, 1).
-				// SetStyle(lipgloss.NewStyle().Background(lipgloss.Color("#FF0000"))).
-				// SetContent(lipgloss.NewStyle().Margin(1).Render(inpt)),
+				SetStyle(lipgloss.NewStyle().
+					Background(lipgloss.Color("#FF0000")).
+					Width(500), // Not Working?
+				).
 				SetContent(zone.Mark("input", inpt)),
 			flexbox.NewCell(4, 1).SetContent(lipgloss.JoinHorizontal(lipgloss.Center, btn1, btn2)),
 		),
@@ -191,7 +193,6 @@ func main() {
 	// Input "bubble"
 	input := textinput.New()
 	input.Placeholder = "URL"
-	// input.Focus()
 	input.Cursor.Blink = true
 
 	// Table "bubble"
